@@ -1,0 +1,144 @@
+/* style.css – Premium Dark Theme with Glassmorphism */
+:root {
+  --bg-color: hsl(220, 10%, 8%);
+  --primary-hue: 210; /* blue-ish */
+  --primary: hsl(var(--primary-hue), 70%, 55%);
+  --accent: hsl(340, 70%, 60%);
+  --text-primary: hsl(0, 0%, 95%);
+  --text-secondary: hsl(0, 0%, 70%);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --radius: 12px;
+  --transition: 0.3s ease;
+  --font-family: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, hsl(220, 10%, 6%), hsl(220, 10%, 10%));
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+section.glass:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+/* Search */
+.search {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.search input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.12);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.search button {
+  padding: 0.75rem 1.2rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.search button:hover {
+  background: hsl(var(--primary-hue), 70%, 65%);
+}
+
+/* Profile */
+#profile {
+  text-align: center;
+}
+#charAvatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 1rem 0;
+  border: 2px solid var(--primary);
+}
+#stats {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Leaderboard Table */
+#leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#leaderboard th, #leaderboard td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+#leaderboard thead {
+  background: var(--glass-bg);
+}
+#leaderboard tbody tr {
+  border-bottom: 1px solid var(--glass-border);
+  transition: var(--transition);
+}
+#leaderboard tbody tr:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  main { padding: 1rem; }
+  header h1 { font-size: 1.5rem; }
+}
